@@ -14,7 +14,7 @@ export default function Sidebar() {
       </a>
       <aside className="sidebar">
         <div className="sidebar__top">
-          <NavLink to="/" end className="sidebar__wordmark-link">
+          <NavLink to="/" end viewTransition className="sidebar__wordmark-link">
             <span className="wordmark sidebar__wordmark">Shaheer Khan</span>
           </NavLink>
           <p className="sidebar__role">computer science, vanderbilt university</p>
@@ -26,6 +26,7 @@ export default function Sidebar() {
                   <NavLink
                     to={path}
                     end={end}
+                    viewTransition
                     className={({ isActive }) =>
                       isActive ? 'sidebar__nav-link sidebar__nav-link--active' : 'sidebar__nav-link'
                     }

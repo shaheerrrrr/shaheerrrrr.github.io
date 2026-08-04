@@ -9,7 +9,7 @@ export default function NotFound() {
       <p className="measure" style={{ marginBottom: 'var(--space-lg)' }}>
         Whatever you were looking for isn&rsquo;t here.
       </p>
-      <Link to="/" className="link">
+      <Link to="/" viewTransition className="link">
         back to the homepage
       </Link>
     </div>

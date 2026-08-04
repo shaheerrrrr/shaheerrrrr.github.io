@@ -4,9 +4,22 @@
   border-top: 1px solid var(--color-rule);
 }
 
+@keyframes row-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .row {
   padding-block: var(--space-md);
   border-bottom: 1px solid var(--color-rule);
+  animation: row-enter var(--duration-state) var(--ease-out-quart) both;
+  animation-delay: calc(min(var(--i, 0), 8) * 50ms);
 }
 
 .row__head {

@@ -34,9 +34,9 @@ export default function Work() {
         ))}
       </div>
 
-      <div className="rows">
-        {visible.map((item) => (
-          <WorkRow key={item.id} item={item} />
+      <div className="rows" key={filter}>
+        {visible.map((item, index) => (
+          <WorkRow key={item.id} item={item} index={index} />
         ))}
       </div>
     </div>

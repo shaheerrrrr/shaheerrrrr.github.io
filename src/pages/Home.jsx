@@ -18,7 +18,7 @@ export default function Home() {
         Previously, I&rsquo;ve built a browser extension that pulls RateMyProfessor
         ratings into Vanderbilt&rsquo;s course registration platform, and trained PPO
         policies for robotic manipulation in MuJoCo/Meta-World. See more on the{' '}
-        <Link to="/work" className="link">
+        <Link to="/work" viewTransition className="link">
           work page
         </Link>
         .

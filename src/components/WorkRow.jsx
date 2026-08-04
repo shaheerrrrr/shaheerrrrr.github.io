@@ -1,10 +1,10 @@
 import './WorkRow.css';
 
-export default function WorkRow({ item }) {
+export default function WorkRow({ item, index = 0 }) {
   const { title, description, href, year } = item;
 
   return (
-    <article className="row">
+    <article className="row" style={{ '--i': index }}>
       <div className="row__head">
         {href ? (
           <a href={href} target="_blank" rel="noreferrer" className="row__title">

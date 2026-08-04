@@ -207,6 +207,33 @@ requires one, no shadows standing in for depth.
 - **Treatment:** `background: linear-gradient(to right, var(--gradient-from), var(--gradient-via), var(--gradient-to))`, `background-clip: text`, `color: transparent`, `background-size: 200% 100%`, animating `background-position` from `0%` to `200%` over 8s linear infinite (one direction, continuously repeating).
 - **Reduced motion:** animation removed entirely; `background-position` fixed at `0%` so the gradient still shows, just static.
 
+### Motion
+Two purposeful motions exist beyond the wordmark and the ordinary hover/focus color
+transitions already listed above. Same discipline as the One-Gradient Rule: a short,
+named list, not a reflex applied everywhere.
+
+- **Page transitions.** Every nav Link (sidebar wordmark, sidebar nav, and any inline
+  prose link that navigates — the "work page" link in Home's second paragraph, the
+  "back to the homepage" link on the 404 page) carries React Router's `viewTransition`
+  prop, which wraps the navigation in the browser's native View Transitions API. The
+  default cross-fade is retuned to this system's own timing (`--duration-page`, 240ms,
+  `ease-out-quart`) via `::view-transition-old(root)` / `::view-transition-new(root)`.
+  Browsers without support (older Firefox) just navigate instantly — no polyfill, no
+  fallback branch to maintain.
+- **Work-list entrance.** The `.rows` container is keyed by the active filter, so
+  switching `all` / `projects` / `experience` remounts the visible rows rather than
+  silently swapping them. Each `.row` fades and rises in (`row-enter`, `--duration-state`,
+  `ease-out-quart`), staggered `calc(min(--i, 8) * 50ms)` per index — legitimate sibling
+  stagger for list-items-appearing, not a section-wide scroll reveal. Delay is capped at
+  8 items so a longer future list can't push total stagger time past ~600ms.
+
+### Named Rules
+
+**The Two-Motion Rule.** Beyond the wordmark's own animation and ordinary state-change
+transitions (hover, focus, active), exactly two additional motions exist on this site:
+the page-transition crossfade and the work-list entrance stagger. Both are named here.
+Adding a third needs a real reason, not "the page felt static."
+
 ### Work row (Work page only — Home carries no project list)
 - **Style:** No card, no border box. A single top rule opens the list; each row gets a
   bottom hairline. Row head is a flex row, `justify-content: space-between`: title on
@@ -215,6 +242,8 @@ requires one, no shadows standing in for depth.
   exists, `tabular-nums`, `text-dim`. No fabricated years or links — both are omitted
   per-entry rather than guessed.
 - **Description:** One line beneath the title, `text-dim`, capped ~62ch.
+- **Entrance:** See Motion above — rows fade/rise in, staggered by index, on mount and
+  on every filter change.
 
 ### Filters (Work page)
 - **Style:** A row of plain lowercase text buttons (`all`, `projects`, `experience`) —
@@ -238,6 +267,8 @@ requires one, no shadows standing in for depth.
 - **Do** ship the gradient animation with a static, reduced-motion fallback.
 - **Do** omit the year or the link on a work-row entry when either is genuinely
   unknown — a missing field, not a guessed one.
+- **Do** keep every navigating `Link`/`NavLink` on `viewTransition` so the crossfade
+  stays consistent site-wide — don't add a new nav link without it.
 
 ### Don't:
 - **Don't** add a second typeface. IBM Plex Mono carries the entire site.
@@ -251,3 +282,6 @@ requires one, no shadows standing in for depth.
   full replacement, not a variant.
 - **Don't** center the page in a single narrow column the way shrysjain.me does. The
   sidebar anchors left; content fills the rest of the width.
+- **Don't** add a third motion pattern beyond the wordmark, the page-transition
+  crossfade, and the work-list stagger without naming it here first — see the
+  Two-Motion Rule.

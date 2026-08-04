@@ -148,6 +148,17 @@ button {
   animation: wordmark-flow var(--duration-wordmark) linear infinite;
 }
 
+/* ---- Route transitions: a plain crossfade, nowhere else ----
+   Powered by the browser's View Transitions API via React Router's
+   `viewTransition` prop on the nav links. Browsers without support just
+   navigate instantly — no polyfill, no fallback code needed. */
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: var(--duration-page);
+  animation-timing-function: var(--ease-out-quart);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -161,5 +172,11 @@ button {
   .wordmark {
     animation: none;
     background-position: 0% 50%;
+  }
+
+  ::view-transition-group(root),
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
   }
 }

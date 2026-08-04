@@ -55,6 +55,7 @@
 
   --duration-instant: 120ms;
   --duration-state: 200ms;
+  --duration-page: 240ms;
   --duration-wordmark: 8s;
 
   /* ---- Z-index scale ---- */
