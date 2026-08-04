@@ -1,0 +1,36 @@
+.work__heading {
+  font-size: var(--text-heading);
+  margin-bottom: var(--space-sm);
+}
+
+.work__lede {
+  color: var(--color-text-dim);
+  margin-bottom: var(--space-lg);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.filter {
+  padding: var(--space-2xs) 0;
+  margin-block: calc(var(--space-2xs) * -1);
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: var(--text-label);
+  color: var(--color-text-dim);
+  cursor: pointer;
+  transition: color var(--duration-state) var(--ease-out-quart);
+}
+
+.filter:hover {
+  color: var(--color-text);
+}
+
+.filter--active {
+  color: var(--color-text);
+}

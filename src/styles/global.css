@@ -1,0 +1,165 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p,
+figure {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  color: var(--color-text);
+}
+
+p {
+  color: var(--color-text-dim);
+  text-wrap: pretty;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: rgb(232 121 249 / 0.28);
+  color: var(--color-text);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-sm);
+  z-index: var(--z-tooltip);
+  padding: var(--space-2xs) var(--space-sm);
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 600;
+  transition: top var(--duration-state) var(--ease-out-quart);
+}
+
+.skip-link:focus-visible {
+  top: var(--space-sm);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.measure {
+  max-width: var(--measure);
+}
+
+.link {
+  color: var(--color-text-dim);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition:
+    color var(--duration-state) var(--ease-out-quart),
+    text-decoration-color var(--duration-state) var(--ease-out-quart);
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--color-text);
+  text-decoration-color: rgb(212 212 216 / 0.4);
+}
+
+/* ---- The one gradient: reserved for the wordmark only ---- */
+
+@keyframes wordmark-flow {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 200% 50%;
+  }
+}
+
+.wordmark {
+  display: inline-block;
+  background-image: linear-gradient(
+    to right,
+    var(--gradient-from),
+    var(--gradient-via),
+    var(--gradient-to),
+    var(--gradient-from)
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: wordmark-flow var(--duration-wordmark) linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .wordmark {
+    animation: none;
+    background-position: 0% 50%;
+  }
+}

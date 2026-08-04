@@ -1,0 +1,64 @@
+:root {
+  /* ---- Color: grayscale + the one gradient signature ---- */
+
+  --color-bg: #18181b;
+  --color-text: #d4d4d8;
+  --color-text-dim: #a1a1aa;
+  --color-rule: rgb(244 244 245 / 0.12);
+  --color-accent: #e879f9;
+
+  --gradient-from: #8b5cf6;
+  --gradient-via: #d946ef;
+  --gradient-to: #b33951;
+
+  /* ---- Type: IBM Plex Mono, everywhere ---- */
+
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  --text-wordmark: clamp(1.75rem, 1.4rem + 1.6vw, 3rem);
+  --text-heading: clamp(1.25rem, 1.1rem + 0.6vw, 1.625rem);
+  --text-title: 1.0625rem;
+  --text-body: 0.9375rem;
+  --text-label: 0.875rem;
+  --text-small: 0.8125rem;
+
+  --leading-tight: 1.1;
+  --leading-snug: 1.3;
+  --leading-body: 1.6;
+
+  --measure: 62ch;
+
+  /* ---- Space: 4pt base scale ---- */
+
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  --sidebar-width: clamp(220px, 22vw, 300px);
+  --content-pad-x: clamp(1.5rem, 4vw, 4rem);
+  --content-pad-y: clamp(2rem, 6vh, 4rem);
+
+  /* ---- Radius: hairline system, minimal rounding ---- */
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+
+  /* ---- Motion ---- */
+
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+
+  --duration-instant: 120ms;
+  --duration-state: 200ms;
+  --duration-wordmark: 8s;
+
+  /* ---- Z-index scale ---- */
+
+  --z-sticky: 100;
+  --z-tooltip: 500;
+}
